@@ -1,0 +1,29 @@
+From: Hilko Bengen <bengen@debian.org>
+Date: Tue, 4 Sep 2018 16:39:46 +0200
+Subject: Read TCL compiler/linker flags from tclConfig.sh if pkg-config fails
+
+---
+ configure.ac | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 19acd10..b7b8106 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -1043,8 +1043,14 @@ AS_IF([test "x$enable_tcl" != "xno"],[
+         AC_SUBST([TCL_CFLAGS])
+         AC_SUBST([TCL_LIBS])
+     ],[
+-        AC_MSG_WARN([Tcl not found])
+-        enable_tcl=no
++        AS_IF([test -x /usr/lib/tclConfig.sh],[
++            AC_MSG_NOTICE([Reading Tcl configuration from tclConfig.sh])
++            AC_SUBST([TCL_CFLAGS], [`. /usr/lib/tclConfig.sh; echo "$TCL_INCLUDE_SPEC"`])
++            AC_SUBST([TCL_LIBS], [`. /usr/lib/tclConfig.sh; echo "$TCL_LIB_SPEC"`])
++        ],[
++            AC_MSG_WARN([Tcl not found])
++            enable_tcl=no
++        ])
+     ])
+ ])
+ AM_CONDITIONAL([HAVE_TCL],[test "x$enable_tcl" = "xyes"])

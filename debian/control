@@ -1,15 +1,149 @@
-Source: template-repository
-Section: unknown
+Source: nbdkit
+Section: admin
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Hilko Bengen <bengen@debian.org>
+Build-Depends: debhelper-compat (= 12),
+ perl,
+ pkg-config,
+ bash-completion,
+ xorriso,
+ comerr-dev,
+# Waiting for #1030361
+# libblkio-dev,
+ libcurl4-gnutls-dev | libcurl-dev,
+ libext2fs-dev,
+ libgnutls28-dev (>= 3.3), gnutls-bin,
+ libguestfs-dev (>= 1:1.36.11-3),
+ liblzma-dev,
+ liblua5.3-dev,
+ libperl-dev,
+ python3-dev,
+ ruby, ruby-dev,
+ tcl-dev,
+ libselinux1-dev,
+ libssh-dev,
+ libtorrent-rasterbar-dev (>= 2),
+ libvirt-dev,
+ zlib1g-dev,
+ libzstd-dev,
+ linux-image-amd64 [amd64] <!nocheck>,
+ linux-image-marvell [armel] <!nocheck>,
+ linux-image-armmp [armhf] <!nocheck>,
+ linux-image-arm64 [arm64] <!nocheck>,
+ linux-image-4kc-malta [mips mipsel] <!nocheck> | linux-image-5kc-malta [mips mipsel] <!nocheck>,
+ linux-image-5kc-malta [mips64 mips64el] <!nocheck>,
+ linux-image-686-pae [i386] <!nocheck> | linux-image-586 [i386] <!nocheck> | linux-image-486 [i386] <!nocheck>,
+ linux-image-powerpc64le [ppc64el] <!nocheck>,
+ linux-image-riscv64 [riscv64] <!nocheck>,
+ linux-image-s390x [s390x] <!nocheck>,
+ busybox <!nocheck>,
+ iproute2 <!nocheck>,
+ jq <!nocheck>,
+ socat <!nocheck>,
+# libguestfs does noot currently work on armel, mipsel, mips64el
+ libguestfs-tools [amd64 arm64 armhf i386 ppc64el riscv64 s390x] <!nocheck>,
+ libnbd-dev,
+ libnbd-bin <!nocheck>,
+ python3-libnbd <!nocheck>,
+ expect <!nocheck>,
+ bsdextrautils <!nocheck>,
+ openssh-server <!nocheck>,
+ qemu-utils <!nocheck>,
+ openssh-server <!nocheck>,
+Standards-Version: 4.5.0
+Homepage: https://github.com/libguestfs/nbdkit
+Vcs-Git: https://salsa.debian.org/debian/nbdkit.git
+Vcs-Browser: https://salsa.debian.org/debian/nbdkit
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: nbdkit
+Architecture: linux-any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+Breaks: nbdkit-plugin-perl (<< 1.22)
+Replaces: nbdkit-plugin-perl (<< 1.22)
+Suggests:
+ nbdkit-plugin-guestfs,
+ nbdkit-plugin-libvirt,
+ nbdkit-plugin-perl,
+ nbdkit-plugin-python,
+# cc-plugin
+ gcc,
+# iso-plugin
+ xorriso,
+# cdi
+ podman, jq,
+Multi-Arch: foreign
+Description: toolkit for creating NBD servers
+ NBD is a protocol for accessing block Devices (hard disks and
+ disk-like things) over a network. nbdkit is a multithreaded NBD
+ server with a well-documented, simple plugin API with a stable ABI
+ guarantee that allows for easy creation of "unconventional" block
+ devices.
+ .
+ This package provides the nbdkit binary and a the file, gzip, and xz,
+ plugins.
+
+Package: nbdkit-plugin-dev
+Section: libdevel
+Architecture: linux-any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}, nbdkit,
+Conflicts: nbdkit (<< 1.1.5-2~)
+Description: development files for nbdkit
+ Development files, documentation and example code for developing
+ plugins to nbdkit.
+
+Package: nbdkit-plugin-lua
+Architecture: linux-any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}, nbdkit,
+Description: Lua plugin for nbdkit
+ This plugin allows nbdkit plugins to be written in Lua.
+
+Package: nbdkit-plugin-perl
+Architecture: linux-any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}, nbdkit,
+Conflicts: nbdkit (<< 1.1.5-2~)
+Description: Perl plugin for nbdkit
+ This plugin allows nbdkit plugins to be written in Perl.
+
+Package: nbdkit-plugin-python
+Architecture: linux-any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}, nbdkit, python3-boto3,
+Conflicts: nbdkit (<< 1.1.5-2~)
+Description: Python plugin for nbdkit
+ This plugin allows nbdkit plugins to be written in Python.
+
+Package: nbdkit-plugin-tcl
+Architecture: linux-any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}, nbdkit,
+Description: TCL plugin for nbdkit
+ This plugin allows nbdkit plugins to be written in TCL.
+
+Package: nbdkit-plugin-libvirt
+Architecture: linux-any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}, nbdkit,
+Conflicts: nbdkit (<< 1.1.5-2~)
+Description: libvirt plugin for nbdkit
+ nbdkit-libvirt-plugin is an nbdkit(1) plugin that makes the contents
+ of libvirt images accessible over NBD.
+
+Package: nbdkit-plugin-guestfs
+Architecture: linux-any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}, nbdkit,
+Conflicts: nbdkit (<< 1.1.5-2~)
+Description: libguestfs plugin for nbdkit
+ nbdkit-guestfs-plugin is an nbdkit(1) plugin that makes the contents
+ of disk images accessible over NBD.
+
+Package: nbdkit-plugin-ruby
+Architecture: linux-any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}, nbdkit,
+Conflicts: nbdkit (<< 1.1.5-2~)
+Description: Ruby plugin for nbdkit
+ This plugin allows nbdkit plugins to be written in Ruby.

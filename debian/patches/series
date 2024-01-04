@@ -1,0 +1,7 @@
+0001-Look-for-lua-5.3.patch
+0002-Read-TCL-compiler-linker-flags-from-tclConfig.sh-if-.patch
+0003-USe-date-for-pod2man-from-README-mtime.patch
+0004-Check-for-mke2fs-in-sbin-dirs-configure-path-into-li.patch
+0007-output-Replace-system-with-explicit-bash-invocation.patch
+0009-cc-plugin-Filter-out-ffile-prefix-map-etc.-from-CFLA.patch
+0007-Disable-some-tests.patch

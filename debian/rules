@@ -1,4 +1,35 @@
 #!/usr/bin/make -f
 
+#export DH_VERBOSE=1
+export DH_OPTIONS
+
+include /usr/share/dpkg/architecture.mk
+
+LIBGUESTFS_ARCHITECTURES := i386 amd64 armhf arm64 riscv64 ppc64el s390x
+
+ifeq "" "$(findstring x$(DEB_HOST_ARCH)x,$(patsubst %,x%x,$(LIBGUESTFS_ARCHITECTURES)))"
+	EXTRA_CONFIG_ARGS := --disable-libguestfs-tests
+endif
+
 %:
-	dh $@
+	dh $@ --with autoreconf
+
+override_dh_auto_configure:
+	dh_auto_configure -- --disable-vddk --sbindir=/usr/bin MKE2FS=/sbin/mke2fs $(EXTRA_CONFIG_ARGS)
+
+override_dh_auto_test: PATH := $(PATH):/sbin
+override_dh_auto_test:
+	if ! test -w /dev/kvm; then export LIBGUESTFS_BACKEND_SETTINGS=force_tcg; fi; \
+		dh_auto_test --no-parallel
+
+override_dh_missing:
+	dh_missing -X.la --fail-missing
+
+override_dh_install:
+	dh_install -X.la
+
+# Don't run dh_makeshlibs since no "real" shared libraries are built
+# Thus avoid Lintian warnings/errors:
+# - pkg-has-shlibs-control-file-but-no-actual-shared-libs
+# - post{inst,rm}-has-useless-call-to-ldconfig
+override_dh_makeshlibs:

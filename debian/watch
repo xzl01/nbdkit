@@ -1,0 +1,3 @@
+version=3
+
+http://libguestfs.org/download/nbdkit/(.*)-stable/nbdkit-(.*)\.tar\.gz

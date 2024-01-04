@@ -1,0 +1,2 @@
+/usr/lib/*-*/nbdkit/plugins/nbdkit-tcl-plugin.so
+/usr/share/man/man3/nbdkit-tcl-plugin.3

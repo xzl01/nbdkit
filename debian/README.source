@@ -1,0 +1,10 @@
+nbdkit for Debian
+-----------------
+
+Some tests that are run as part of the build process are built around
+libguestfs. While libguestfs can only be used if a Linux kernel image
+is found, the *guestfs* packages do not depend directly on linux-image
+packages, so this source package adds the extra build dependencies
+that are needed to run the tests.
+
+ -- Hilko Bengen <bengen@debian.org>, Tue,  6 Feb 2018 10:36:32 +0100

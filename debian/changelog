@@ -1,5 +1,894 @@
-template-repository (1.0-1) unstable; urgency=medium
+nbdkit (1.36.2-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream version 1.36.2
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Hilko Bengen <bengen@debian.org>  Mon, 27 Nov 2023 21:44:34 +0100
+
+nbdkit (1.36.1-1) unstable; urgency=medium
+
+  * New upstream version 1.36.1
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 24 Oct 2023 12:41:36 +0200
+
+nbdkit (1.36.0-1) unstable; urgency=medium
+
+  * New upstream version 1.36.0
+  * Update install (nbdkit-ones-plugin)
+  * Update cc-plugin CFLAGS patch
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 09 Oct 2023 08:25:05 +0200
+
+nbdkit (1.34.4-1) unstable; urgency=medium
+
+  * New upstream version 1.34.4
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 27 Sep 2023 10:23:14 +0200
+
+nbdkit (1.34.3-1) unstable; urgency=medium
+
+  * New upstream version 1.34.3
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 10 Sep 2023 18:22:41 +0200
+
+nbdkit (1.34.2-10) unstable; urgency=medium
+
+  * Really skip test-stdio
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 29 Jul 2023 11:19:01 +0200
+
+nbdkit (1.34.2-9) unstable; urgency=medium
+
+  * Disable flaky test
+
+ -- Hilko Bengen <bengen@debian.org>  Fri, 28 Jul 2023 22:53:42 +0200
+
+nbdkit (1.34.2-8) unstable; urgency=medium
+
+  * Correct build dependencies, again.
+
+ -- Hilko Bengen <bengen@debian.org>  Fri, 28 Jul 2023 11:32:36 +0200
+
+nbdkit (1.34.2-7) unstable; urgency=medium
+
+  * Disable gueestfs test again for for mips*, fix typo
+
+ -- Hilko Bengen <bengen@debian.org>  Thu, 27 Jul 2023 21:53:07 +0200
+
+nbdkit (1.34.2-6) unstable; urgency=medium
+
+  * Disable libguestfs tests on armel
+
+ -- Hilko Bengen <bengen@debian.org>  Thu, 27 Jul 2023 01:17:36 +0200
+
+nbdkit (1.34.2-5) unstable; urgency=medium
+
+  * Add kernel image dependencies for armel, mips*
+  * clean out comments
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 25 Jul 2023 14:33:30 +0200
+
+nbdkit (1.34.2-4) unstable; urgency=medium
+
+  * Set LIBGUESTFS_BACKEND_SETTINGS if kvm is not available
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 22 Jul 2023 12:16:32 +0200
+
+nbdkit (1.34.2-3) unstable; urgency=medium
+
+  * Require kernels for testing with libguestfs-tools
+
+ -- Hilko Bengen <bengen@debian.org>  Fri, 21 Jul 2023 16:08:23 +0200
+
+nbdkit (1.34.2-2) unstable; urgency=medium
+
+  * Restrict tests using libguestfs via build dependency
+
+ -- Hilko Bengen <bengen@debian.org>  Fri, 21 Jul 2023 14:14:12 +0200
+
+nbdkit (1.34.2-1) unstable; urgency=medium
+
+  * New upstream version 1.34.2
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 19 Jul 2023 23:52:40 +0200
+
+nbdkit (1.34.1-1) unstable; urgency=medium
+
+  * New upstream version 1.34.1
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 12 Jun 2023 18:22:30 +0200
+
+nbdkit (1.34.0-1) unstable; urgency=medium
+
+  * New upstream version 1.34.0
+  * Rebase patches
+  * Update build-dependency
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 15 Apr 2023 19:06:12 +0200
+
+nbdkit (1.32.5-1) unstable; urgency=medium
+
+  * New upstream version 1.32.5
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 04 Jan 2023 10:09:23 +0100
+
+nbdkit (1.32.4-1) unstable; urgency=medium
+
+  * New upstream version 1.32.4
+  * Update patches
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 19 Nov 2022 17:17:31 +0100
+
+nbdkit (1.32.3-1) unstable; urgency=medium
+
+  * New upstream version 1.32.3
+  * Drop patch added in 1.32.2-3 for equivalent upstream change
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 15 Oct 2022 11:39:01 +0200
+
+nbdkit (1.32.2-3) unstable; urgency=medium
+
+  * Add workaround for curl-based tests (Closes: #1020005)
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 03 Oct 2022 23:08:08 +0200
+
+nbdkit (1.32.2-2) unstable; urgency=medium
+
+  * debian/docs: Fix README location
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 29 Aug 2022 09:49:54 +0200
+
+nbdkit (1.32.2-1) unstable; urgency=medium
+
+  * New upstream version 1.32.2
+  * Rework patch
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 29 Aug 2022 00:23:19 +0200
+
+nbdkit (1.30.9-1) unstable; urgency=medium
+
+  * New upstream version 1.30.9
+  * Adjust lintian-overrides to changed lintian output format
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 02 Aug 2022 13:15:16 +0200
+
+nbdkit (1.30.8-1) unstable; urgency=medium
+
+  * New upstream version 1.30.8
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 20 Jul 2022 23:35:47 +0200
+
+nbdkit (1.30.7-1) unstable; urgency=medium
+
+  * New upstream version 1.30.7
+  * Require libtorrent-rasterbar v2
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 11 Jul 2022 16:29:42 +0200
+
+nbdkit (1.30.6-1) unstable; urgency=medium
+
+  * New upstream version 1.30.6
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 14 Jun 2022 12:00:40 +0200
+
+nbdkit (1.30.4-1) unstable; urgency=medium
+
+  * New upstream version 1.30.4
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 27 Apr 2022 10:14:16 +0200
+
+nbdkit (1.30.3-1) unstable; urgency=medium
+
+  * New upstream version 1.30.3
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 19 Apr 2022 13:35:02 +0200
+
+nbdkit (1.30.2-1) unstable; urgency=medium
+
+  * New upstream version 1.30.2
+  * Rebase patches
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 04 Apr 2022 10:03:51 +0200
+
+nbdkit (1.30.0-1) unstable; urgency=medium
+
+  * New upstream version 1.30.0
+  * Rebase patches
+  * nbdkit-streaming-plugin has been removed.
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 27 Feb 2022 22:21:49 +0100
+
+nbdkit (1.28.5-1) unstable; urgency=medium
+
+  * New upstream version 1.28.5
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 25 Jan 2022 22:28:21 +0100
+
+nbdkit (1.28.4-1) unstable; urgency=medium
+
+  * New upstream version 1.28.4
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 23 Jan 2022 17:13:10 +0100
+
+nbdkit (1.28.3-2) unstable; urgency=medium
+
+  * Add patch to disable test-delay-close.sh to avoid FTBFS
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 27 Dec 2021 20:19:37 +0100
+
+nbdkit (1.28.3-1) unstable; urgency=medium
+
+  * New upstream version 1.28.3
+  * Add gbp.conf
+  * Rebase patches; drop patch that has been integrated upstream
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 27 Dec 2021 15:10:14 +0100
+
+nbdkit (1.26.6-2) unstable; urgency=medium
+
+  * To avoid FTBFS, add checks for AF_VSOCK support in test scripts
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 25 Oct 2021 21:37:24 +0200
+
+nbdkit (1.26.6-1) unstable; urgency=medium
+
+  [ Simon McVittie ]
+  * d/rules: Specify canonical path to mke2fs (Closes: #992702)
+
+  [ Hilko Bengen ]
+  * Add patch to filter out build path from cc plugin (Closes: #992722)
+  * New upstream version 1.26.6
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 27 Sep 2021 13:40:05 +0200
+
+nbdkit (1.26.5-1) unstable; urgency=medium
+
+  * New upstream version 1.26.5
+    - Includes fix for CVE-2021-3716
+  * Switch to using xorriso instead of genisoimage (Closes: #982239)
+  * Add Suggests for external tools used by some plugins
+
+ -- Hilko Bengen <bengen@debian.org>  Thu, 19 Aug 2021 17:23:24 +0200
+
+nbdkit (1.26.3-1) unstable; urgency=medium
+
+  * New upstream version 1.26.3
+  * Update install file as gzip and tar plugins have been removed
+  * Update build-dependencies for running tests
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 15 Aug 2021 10:59:36 +0200
+
+nbdkit (1.24.1-2) unstable; urgency=medium
+
+  * Re-enable torrent plugin (Closes: #983735)
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 01 Mar 2021 17:02:30 +0100
+
+nbdkit (1.24.1-1) unstable; urgency=medium
+
+  * New upstream version 1.24.1
+  * Update patches
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 09 Feb 2021 23:22:05 +0100
+
+nbdkit (1.24.0-5) unstable; urgency=medium
+
+  * Disable more tests which have only failed on buildds
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 10 Jan 2021 19:17:23 +0100
+
+nbdkit (1.24.0-4) unstable; urgency=medium
+
+  * Disable test which only fails on buildds
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 10 Jan 2021 18:22:46 +0100
+
+nbdkit (1.24.0-3) unstable; urgency=medium
+
+  * Add patch to call bash for logging
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 10 Jan 2021 00:26:56 +0100
+
+nbdkit (1.24.0-2) unstable; urgency=medium
+
+  * Fix FTBFS (mistyped install path)
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 09 Jan 2021 16:59:02 +0100
+
+nbdkit (1.24.0-1) unstable; urgency=medium
+
+  * New upstream version 1.24.0
+  * Rebase patches; add patch to fix bashim in test case
+  * Add new plugins to install list
+  
+ -- Hilko Bengen <bengen@debian.org>  Sat, 09 Jan 2021 14:59:51 +0100
+
+nbdkit (1.22.4-1) unstable; urgency=medium
+
+  * New upstream version 1.22.4
+  * Enable zstd support (build dependency)
+  * Add lintian override for binary modules used in compatibility tests
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 22 Dec 2020 14:46:40 +0100
+
+nbdkit (1.22.3-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Temporarily stop building the torrent plugin since
+    libtorrent-rasterbar-dev is RC-buggy (see #956285), to allow nbdkit to
+    migrate to testing. The torrent plugin has never been available in
+    testing, so this does not represent a regression there (Closes: #974574) 
+
+ -- Dominic Hargreaves <dom@earth.li>  Sat, 14 Nov 2020 19:13:45 +0000
+
+nbdkit (1.22.3-1) unstable; urgency=medium
+
+  * New upstream version 1.22.3
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 23 Sep 2020 11:35:11 +0200
+
+nbdkit (1.22.2-1) unstable; urgency=medium
+
+  * New upstream version 1.22.2
+  * Add some build dependencies for running unit tests
+
+ -- Hilko Bengen <bengen@debian.org>  Thu, 17 Sep 2020 16:08:33 +0200
+
+nbdkit (1.22.1-2) unstable; urgency=medium
+
+  * Add missing Breaks/Replaces (Closes: #970135)
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 12 Sep 2020 15:55:41 +0200
+
+nbdkit (1.22.1-1) unstable; urgency=medium
+
+  * New upstream version 1.22.1
+  * Update build dependencies, install lists
+  * Rebase patches
+  * Add patch for libtorrent/1.2.5
+  * Enable libgeustfs debug log for tests
+
+ -- Hilko Bengen <bengen@debian.org>  Thu, 10 Sep 2020 01:15:00 +0200
+
+nbdkit (1.20.6-1) unstable; urgency=medium
+
+  * New upstream version 1.20.6
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 11 Aug 2020 11:18:28 +0200
+
+nbdkit (1.20.5-1) unstable; urgency=medium
+
+  * New upstream version 1.20.5
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 14 Jul 2020 09:57:33 +0200
+
+nbdkit (1.20.4-3) unstable; urgency=medium
+
+  * Don't look for mke2fs in /usr/sbin
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 28 Jun 2020 19:00:09 +0200
+
+nbdkit (1.20.4-2) unstable; urgency=medium
+
+  * Change PATH order, in hope of fixing reproducible build
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 27 Jun 2020 01:49:49 +0200
+
+nbdkit (1.20.4-1) unstable; urgency=medium
+
+  * New upstream version 1.20.4
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 23 Jun 2020 09:20:36 +0200
+
+nbdkit (1.20.3-1) unstable; urgency=medium
+
+  * New upstream version 1.20.3
+
+ -- Hilko Bengen <bengen@debian.org>  Thu, 11 Jun 2020 15:17:39 +0200
+
+nbdkit (1.20.2-1) unstable; urgency=medium
+
+  * New upstream version 1.20.2
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 01 Jun 2020 02:55:36 +0200
+
+nbdkit (1.18.4-1) unstable; urgency=medium
+
+  * New upstream version 1.18.4
+  * Make nbdkit Multi-Arch: foreign
+  * Lintian: Ignore shared-lib-without-dependency-information
+  * Packaging cleanups
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 03 May 2020 22:04:15 +0200
+
+nbdkit (1.18.3-1) unstable; urgency=medium
+
+  * New upstream version 1.18.3
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 29 Mar 2020 13:16:54 +0200
+
+nbdkit (1.18.2-1) unstable; urgency=medium
+
+  * New upstream version 1.18.2
+  * Install nbdkit binary to /usr/bin (Closes: #954199)
+  * Bump Standards-Version
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 18 Mar 2020 11:48:00 +0100
+
+nbdkit (1.18.0-1) unstable; urgency=medium
+
+  * New upstream version 1.18.0
+  * Update install rules (eval plugin)
+  * Rebase patches
+  * Add configure patch to check for mke2fs in sbin directories
+
+ -- Hilko Bengen <bengen@debian.org>  Fri, 28 Feb 2020 15:56:17 +0100
+
+nbdkit (1.16.2-1) unstable; urgency=medium
+
+  * New upstream version 1.16.2
+  * Rebase patches
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 29 Jan 2020 14:49:03 +0100
+
+nbdkit (1.16.1-3) unstable; urgency=medium
+
+  * Re-add libnbd-dev build-dependency
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 13 Jan 2020 01:49:05 +0100
+
+nbdkit (1.16.1-2) unstable; urgency=medium
+
+  * Stop distributing the VDDK plugin
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 12 Jan 2020 19:48:41 +0100
+
+nbdkit (1.16.1-1) unstable; urgency=medium
+
+  * New upstream version 1.16.1
+  * Switch Python plugin to Python3 (Closes: #937118)
+  * Update install rules
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 12 Jan 2020 16:36:17 +0100
+
+nbdkit (1.14.2-3) unstable; urgency=medium
+
+  * Add genisoimage build-dependency (Closes: #942390)
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 16 Oct 2019 09:44:24 +0200
+
+nbdkit (1.14.2-2) unstable; urgency=medium
+
+  * Remove libnbd-dev build-dependency for now (Closes: #941935)
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 08 Oct 2019 00:15:28 +0200
+
+nbdkit (1.14.2-1) unstable; urgency=medium
+
+  * New upstream version 1.14.2
+  * Correct Build-Depends typo
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 21 Sep 2019 12:35:41 +0200
+
+nbdkit (1.14.1-1) unstable; urgency=medium
+
+  * New upstream version 1.14.1
+  * Rebase patch
+
+ -- Hilko Bengen <bengen@debian.org>  Fri, 13 Sep 2019 08:23:32 +0200
+
+nbdkit (1.14.0-2) unstable; urgency=medium
+
+  * Update build-dependencies
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 09 Sep 2019 20:44:47 +0200
+
+nbdkit (1.14.0-1) unstable; urgency=medium
+
+  * New upstream version 1.14.0
+  * Update patches
+
+ -- Hilko Bengen <bengen@debian.org>  Thu, 29 Aug 2019 12:45:13 +0200
+
+nbdkit (1.12.4-1) unstable; urgency=medium
+
+  * New upstream version 1.12.4
+  * Bump Standards-Version
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 27 Jul 2019 11:45:20 +0200
+
+nbdkit (1.12.2-1) unstable; urgency=medium
+
+  * New upstream version 1.12.2
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 24 Apr 2019 10:42:15 +0200
+
+nbdkit (1.12.1-2) unstable; urgency=medium
+
+  * Disable tests on arm64
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 21 Apr 2019 13:08:28 +0200
+
+nbdkit (1.12.1-1) unstable; urgency=medium
+
+  * New upstream version 1.12.1
+  * Fix Vcs-* headers
+  * Install linuxdisk, ssh plugins
+  * xz is now implemented as a filter
+  * Add Lintian overrides
+
+ -- Hilko Bengen <bengen@debian.org>  Thu, 18 Apr 2019 23:58:20 +0200
+
+nbdkit (1.10.3-1) unstable; urgency=medium
+
+  * New upstream version 1.10.3
+
+ -- Hilko Bengen <bengen@debian.org>  Fri, 01 Feb 2019 00:01:49 +0100
+
+nbdkit (1.10.2-1) unstable; urgency=medium
+
+  * New upstream version 1.10.2
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 29 Jan 2019 11:02:03 +0100
+
+nbdkit (1.10.1-2) unstable; urgency=medium
+
+  * Modify podwrapper patch to use file mtime instead of trying to read it
+    like a changelog
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 27 Jan 2019 12:35:25 +0100
+
+nbdkit (1.10.1-1) unstable; urgency=medium
+
+  * New upstream version 1.10.1
+  * Update patches
+  * Add podwrapper patch in order to make build (more) reproducible
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 27 Jan 2019 05:02:04 +0100
+
+nbdkit (1.10.0-2) unstable; urgency=medium
+
+  * Don't run tests in parallel
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 22 Jan 2019 13:40:44 +0100
+
+nbdkit (1.10.0-1) unstable; urgency=medium
+
+  * New upstream version 1.10.0
+  * Bump Debhelper compat level
+  * Update install file
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 22 Jan 2019 11:31:03 +0100
+
+nbdkit (1.8.3-2) unstable; urgency=medium
+
+  * Add dh_missing exception to avoid FTBFS
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 14 Jan 2019 10:10:47 +0100
+
+nbdkit (1.8.3-1) unstable; urgency=medium
+
+  * New upstream version 1.8.3
+  * Update patches
+  * Bump Debhelper compat level
+  * Replace dh_install --fail-missing
+  * Bump Standards-Version
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 08 Jan 2019 04:26:12 +0100
+
+nbdkit (1.8.2-1) unstable; urgency=medium
+
+  * New upstream version 1.8.2
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 08 Dec 2018 13:15:48 +0100
+
+nbdkit (1.8.1-1) unstable; urgency=medium
+
+  * New upstream version 1.8.1
+  * Rebase patches
+  * Update nbdkit.install file
+
+ -- Hilko Bengen <bengen@debian.org>  Fri, 23 Nov 2018 17:42:34 +0100
+
+nbdkit (1.6.3-1) unstable; urgency=medium
+
+  * New upstream version 1.6.3
+  * Rebase patches
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 07 Nov 2018 11:08:29 +0100
+
+nbdkit (1.6.2-1) unstable; urgency=medium
+
+  * New upstream version 1.6.2
+  * Bump Standards-Version
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 19 Sep 2018 11:35:30 +0200
+
+nbdkit (1.6.1-1) unstable; urgency=medium
+
+  * New upstream version 1.6.1
+  * Add TCL plugin package
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 10 Sep 2018 00:01:41 +0200
+
+nbdkit (1.6.0-1) unstable; urgency=medium
+
+  * New upstream version 1.6.0
+  * Add Lua plugin package
+  * Update nbdkit.install for new plug-ins and manpages
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 03 Sep 2018 23:31:46 +0200
+
+nbdkit (1.4.3-1) unstable; urgency=medium
+
+  * New upstream version 1.4.3
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 20 Aug 2018 17:49:43 +0200
+
+nbdkit (1.4.2-1) unstable; urgency=medium
+
+  * New upstream version 1.4.2
+  * Bump Standards-Version
+
+ -- Hilko Bengen <bengen@debian.org>  Thu, 02 Aug 2018 07:50:55 +0200
+
+nbdkit (1.4.1-1) unstable; urgency=medium
+
+  * New upstream version 1.4.1
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 21 Jul 2018 18:26:46 +0200
+
+nbdkit (1.4.0-1) unstable; urgency=medium
+
+  * New upstream version 1.4.0
+  * Bump Standards-Version
+  * Update plugin list
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 11 Jul 2018 00:55:22 +0200
+
+nbdkit (1.2.4-1) unstable; urgency=medium
+
+  * New upstream version 1.2.4
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 16 Jun 2018 13:24:18 +0200
+
+nbdkit (1.2.2-2) unstable; urgency=medium
+
+  * Add ruby build-dependency (Closes: #897546)
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 06 May 2018 22:05:26 +0200
+
+nbdkit (1.2.2-1) unstable; urgency=medium
+
+  * New upstream version 1.2.2
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 22 Apr 2018 12:25:49 +0200
+
+nbdkit (1.2.1-3) unstable; urgency=medium
+
+  * Disable tests on all architectures except i386, amd64, arm64
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 16 Apr 2018 20:32:11 +0200
+
+nbdkit (1.2.1-2) unstable; urgency=medium
+
+  * Remove build-dependency for armel kernel image
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 16 Apr 2018 16:38:19 +0200
+
+nbdkit (1.2.1-1) unstable; urgency=medium
+
+  * New upstream version 1.2.1
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 10 Apr 2018 06:18:05 +0200
+
+nbdkit (1.2.0-1) unstable; urgency=medium
+
+  * New upstream version 1.2.0
+  * Update watch file
+  * Bump Standards-Version
+  * Update Vcs-* to salsa.debian.org
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 07 Apr 2018 09:29:51 +0200
+
+nbdkit (1.1.28-3) unstable; urgency=medium
+
+  * Document the need for linux-image-* build dependencies
+    (Closes: #889686)
+  * Disable some build dependencies for the nocheck build profile
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 06 Feb 2018 18:59:38 +0100
+
+nbdkit (1.1.28-2) unstable; urgency=medium
+
+  * Disable tests on armhf, mips64el for now
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 23 Jan 2018 21:47:12 +0100
+
+nbdkit (1.1.28-1) unstable; urgency=medium
+
+  * New upstream version 1.1.28
+  * Bump Standards-Version
+  * Drop patches related to NBD/QEMU test breakage, add versioned libguestfs
+    build-dependency instead
+  * Add entries to .install files: filters, pkg-config file
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 23 Jan 2018 10:27:03 +0100
+
+nbdkit (1.1.25-1) unstable; urgency=medium
+
+  * New upstream version 1.1.25
+  * Add tar plugin to nbdkit-plugin-perl
+  * Install all examples into nbdkit-plugin-dev
+
+ -- Hilko Bengen <bengen@debian.org>  Thu, 07 Dec 2017 09:24:35 +0100
+
+nbdkit (1.1.22-1) unstable; urgency=medium
+
+  * New upstream version 1.1.22
+  * Add workaround for libguestfs-related FTBFS in tests
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 04 Dec 2017 11:06:23 +0100
+
+nbdkit (1.1.20-1) unstable; urgency=medium
+
+  * New upstream version 1.1.20
+  * Add split plugin
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 03 Dec 2017 12:51:48 +0100
+
+nbdkit (1.1.19-1) unstable; urgency=medium
+
+  * New upstream version 1.1.19
+  * Add null, memory plugin
+  * Bump Standards-Version
+
+ -- Hilko Bengen <bengen@debian.org>  Fri, 01 Dec 2017 09:35:15 +0100
+
+nbdkit (1.1.18-2) unstable; urgency=medium
+
+  * Add nbdkit-nbd-plugin to .install file (Closes: #882428)
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 22 Nov 2017 23:46:04 +0100
+
+nbdkit (1.1.18-1) unstable; urgency=medium
+
+  * New upstream version 1.1.18
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 22 Nov 2017 10:09:46 +0100
+
+nbdkit (1.1.16-1) unstable; urgency=medium
+
+  * New upstream version 1.1.16
+  * Bump Standards-Version, change Priority to optional
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 21 Oct 2017 12:07:09 +0200
+
+nbdkit (1.1.15-1) unstable; urgency=medium
+
+  * New upstream version 1.1.15
+  * Build with TLS support, requiring GnuTLS >= 3.3 for building
+  * Build with SElinux support
+  * Add build-dependencies for tools used in tests
+
+ -- Hilko Bengen <bengen@debian.org>  Thu, 28 Sep 2017 00:08:07 +0200
+
+nbdkit (1.1.14-2) unstable; urgency=medium
+
+  * Disable tests on s390x, armel, mipsel, powerpc, this time
+    commenting on failures
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 03 Sep 2017 20:16:51 +0200
+
+nbdkit (1.1.14-1) unstable; urgency=medium
+
+  * New upstream version 1.1.14
+  * Mark nbdkit-plugin-* Multi-Arch: same
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 02 Sep 2017 15:55:20 +0200
+
+nbdkit (1.1.13-1) unstable; urgency=medium
+
+  * New upstream version 1.1.13
+  * Fix watch file
+  * Modernize package: Bump DH compat level, Standards-Version, adjust
+    Vcs-* URLs
+  * Enable building libguestfs stuff on all architectures, enable tests
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 26 Aug 2017 15:04:31 +0200
+
+nbdkit (1.1.12-1) unstable; urgency=medium
+
+  * New upstream version
+  * Bump Standards-Version
+  * Add Vcs-* headers
+  * Add nbdkit-plugin-ruby package
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 21 Jun 2016 23:18:59 +0200
+
+nbdkit (1.1.11-1) unstable; urgency=medium
+
+  * New upstream version
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 01 Nov 2015 11:46:37 +0100
+
+nbdkit (1.1.10-1) unstable; urgency=medium
+
+  * New upstream version
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 20 Jun 2015 16:54:02 +0200
+
+nbdkit (1.1.9-1) unstable; urgency=medium
+
+  * New upstream version
+  * Added streaming plugin
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 22 Oct 2014 10:52:20 +0200
+
+nbdkit (1.1.8-1) unstable; urgency=medium
+
+  * New upstream version
+  * Added curl plugin
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 22 Jun 2014 00:18:00 +0200
+
+nbdkit (1.1.7-1) unstable; urgency=medium
+
+  * New upstream version
+  * Dropped patch that was integrated upstream
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 21 Jun 2014 10:51:05 +0200
+
+nbdkit (1.1.6-2) unstable; urgency=low
+
+  * Fix FRBFS on architectures where libguestfs is not available
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 25 Feb 2014 08:14:11 +0100
+
+nbdkit (1.1.6-1) unstable; urgency=low
+
+  * New upstream version
+  * Split package
+  * Cherry-picked post-1.1.6-bugfix from upstream git
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 17 Feb 2014 19:31:33 +0100
+
+nbdkit (1.1.5-1) unstable; urgency=low
+
+  * New upstream version
+  * Removed patches as they have been integrated upstream
+  * Added build dependency for Python plugin
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 15 Feb 2014 11:26:47 +0100
+
+nbdkit (1.1.4-1) unstable; urgency=low
+
+  * New upstream version
+  * Added build dependency for Perl plugin
+  * Added patch to work around #738716
+  * Added patch to properly figure out linker options for building Perl
+    plugin
+  * Use dh-autoreconf instead of autotools-dev
+
+ -- Hilko Bengen <bengen@debian.org>  Thu, 13 Feb 2014 21:13:44 +0100
+
+nbdkit (1.1.3-2) unstable; urgency=low
+
+  * Added pkg-config build dependency so that plugins can be built
+    (Closes: #725504)
+  * Only build for Linux
+  * Disabled tests. At the moment a fully working libguestfs installation
+    in an autobuilder environment is not feasible.
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 08 Oct 2013 23:04:39 +0200
+
+nbdkit (1.1.3-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Hilko Bengen <bengen@debian.org>  Sun, 06 Oct 2013 15:25:05 +0200
+
+nbdkit (1.1.2-1) unstable; urgency=low
+
+  * Initial release (Closes: #718560)
+
+ -- Hilko Bengen <bengen@debian.org>  Fri, 02 Aug 2013 22:09:57 +0200

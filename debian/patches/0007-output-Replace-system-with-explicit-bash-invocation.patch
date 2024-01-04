@@ -1,0 +1,46 @@
+From: Hilko Bengen <bengen@debian.org>
+Date: Sun, 10 Jan 2021 00:24:53 +0100
+Subject: output: Replace system() with explicit bash invocation
+
+Tehre is probably a better way to do this.
+---
+ filters/log/output.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/filters/log/output.c b/filters/log/output.c
+index 4a11604..e769dc5 100644
+--- a/filters/log/output.c
++++ b/filters/log/output.c
+@@ -44,6 +44,7 @@
+ #include <assert.h>
+ #include <fcntl.h>
+ #include <unistd.h>
++#include <sys/wait.h>
+ 
+ #include <nbdkit-filter.h>
+ 
+@@ -113,6 +114,8 @@ to_script (struct handle *h, log_id_t id, const char *act, enum type type,
+   CLEANUP_FREE char *str = NULL;
+   size_t len = 0;
+   int r;
++  int pid;
++  int wstatus = 0;
+ 
+   /* Create the shell variables + script. */
+   fp = open_memstream (&str, &len);
+@@ -140,7 +143,14 @@ to_script (struct handle *h, log_id_t id, const char *act, enum type type,
+   fclose (fp);
+ 
+   /* Run the script.  Log the status, but ignore it. */
+-  r = system (str);
++  if (pid = fork() == 0) {
++    execl ("/bin/bash", "sh", "-c", str, NULL);
++    exit (-errno);
++  } else if (pid > 0) {
++    waitpid (pid, &r, 0);
++  } else {
++    r = -1;
++  }
+   exit_status_to_nbd_error (r, "logscript");
+ }
+ 

@@ -1,0 +1,21 @@
+From: Hilko Bengen <bengen@debian.org>
+Date: Mon, 3 Sep 2018 22:48:55 +0200
+Subject: Look for lua 5.3
+
+---
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure.ac b/configure.ac
+index 2e8c22e..19acd10 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -1055,7 +1055,7 @@ AC_ARG_ENABLE([lua],
+     [],
+     [enable_lua=yes])
+ AS_IF([test "x$enable_lua" != "xno"],[
+-    PKG_CHECK_MODULES([LUA], [lua], [
++    PKG_CHECK_MODULES([LUA], [lua5.3], [
+         AC_SUBST([LUA_CFLAGS])
+         AC_SUBST([LUA_LIBS])
+ 

@@ -1,0 +1,3 @@
+# modules built with old nbdkit versions are only used in
+# compatibility tests.
+source-is-missing [tests/old-plugins/*.so]

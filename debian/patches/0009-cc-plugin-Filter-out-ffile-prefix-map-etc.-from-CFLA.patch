@@ -1,0 +1,36 @@
+From: Simon McVittie <smcv@debian.org>
+Date: Mon, 23 Aug 2021 09:40:33 +0100
+Subject: cc plugin: Filter out -ffile-prefix-map etc. from CFLAGS
+
+The default CFLAGS from dpkg-buildflags include this compiler flag to
+rewrite nbdkit's own source directory in __FILE__, debug symbols and
+similar constructs so that the source directory used by the developer
+or the transient source directory used by an autobuilder is not
+written into the executable, which would make it non-reproducible
+between different build directories. Older versions used
+-fdebug-prefix-map for a similar (although more limited) purpose.
+
+However, these particular flags are not useful when compiling a new
+plugin at a later time, and because they include the package's source
+directory, including them in the binary makes it non-reproducible
+between different build directories.
+
+Signed-off-by: Simon McVittie <smcv@debian.org>
+Bug-Debian: https://bugs.debian.org/992722
+---
+ plugins/cc/Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/plugins/cc/Makefile.am b/plugins/cc/Makefile.am
+index 088b5ff..f0b10d2 100644
+--- a/plugins/cc/Makefile.am
++++ b/plugins/cc/Makefile.am
+@@ -46,7 +46,7 @@ nbdkit_cc_plugin_la_SOURCES = \
+ 
+ nbdkit_cc_plugin_la_CPPFLAGS = \
+ 	-DCC="\"$(CC_PLUGIN_CC)\"" \
+-	-DCFLAGS="\"$(CC_PLUGIN_CFLAGS)\"" \
++	-DCFLAGS="\"$(filter-out -ffile-prefix-map=% -fdebug-prefix-map=%,$(CC_PLUGIN_CFLAGS))\"" \
+ 	-I$(top_srcdir)/include \
+ 	-I$(top_builddir)/include \
+ 	-I$(top_srcdir)/common/include \
